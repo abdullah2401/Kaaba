@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --yellow-c: #ffff00;
+    --b-ywllow-c:#cccc00 ;
+}
+body {
+    font-family: "Reem Kufi", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #404040;
+    min-height: 100vh;
+    perspective: 2000px;
+}
+
+.container {
+    width: 300px ;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 60s linear infinite;
+    -webkit-animation: rotate 60s linear infinite;
+}
+@keyframes rotate {
+    0%{
+        transform: rotateX(-30deg) rotateY(10deg);
+        -webkit-transform: rotateX(-30deg) rotateY(10deg);
+        -moz-transform: rotateX(-30deg) rotateY(10deg);
+        -ms-transform: rotateX(-30deg) rotateY(10deg);
+        -o-transform: rotateX(-30deg) rotateY(10deg);
+    }
+    100%{
+        transform: rotateX(-30deg) rotateY(360deg);
+        -webkit-transform: rotateX(-30deg) rotateY(360deg);
+        -moz-transform: rotateX(-30deg) rotateY(360deg);
+        -ms-transform: rotateX(-30deg) rotateY(360deg);
+        -o-transform: rotateX(-30deg) rotateY(360deg);
+}
+}
+.box::after{
+    inset: 1px;
+    position: absolute;
+    content: "";
+    transform: rotateX(-90deg) translateZ(340px);
+    -webkit-transform: rotateX(-90deg) translateZ(340px);
+    -moz-transform: rotateX(-90deg) translateZ(340px);
+    -ms-transform: rotateX(-90deg) translateZ(340px);
+    -o-transform: rotateX(-90deg) translateZ(340px);
+    background-color: rgba(205, 205, 205, 0.7);
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+    box-shadow: 0 0 120px rgba(205, 205, 205, 0.2),
+                0 0 200px rgba(205, 205, 205, 0.4),
+                0 0 300px rgba(205, 205, 205, 0.6),
+                0 0 400px rgba(205, 205, 205, 0.8),
+                0 0 500px rgba(205, 205, 205, 1);
+}
+.box::before{
+    inset: 0;
+    position: absolute;
+    content: "";
+    background-color: #888;
+    box-shadow: 0 0 2  #111;
+    transform: rotateX(-90deg) translateZ(-150px);
+    -webkit-transform: rotateX(-90deg) translateZ(-150px);
+    -moz-transform: rotateX(-90deg) translateZ(-150px);
+    -ms-transform: rotateX(-90deg) translateZ(-150px);
+    -o-transform: rotateX(-90deg) translateZ(-150px);
+    box-shadow: inset 0 0 0 10px #666,
+                inset 0 0 2px 15px #43434399,
+                inset 0 0 0 20px #777,
+                inset 0 0 5px 25px #444;
+}
+.box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+.box > span {
+    position: absolute;
+    width: 100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    background: #111;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 15px;
+    font-weight: 700;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+    -webkit-transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+    -moz-transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+    -ms-transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+    -o-transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+    box-shadow: inset 0 0 10px #777;
+}
+
+.box > span .second-line i {
+    color: var(--yellow-c);
+    font-size: 35px;
+}
+.box > span .second-line {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.box > span .second-line .box-y {
+    width: 75px;
+    height: 30px;
+    background-color: var(--yellow-c);
+    border: 5px double #111;
+}
+.box > span .second-line .box-y.first {
+    width: 35px;
+    border-left: none;
+}
+.box > span .second-line .box-y.last {
+    width: 35px;
+    border-right: none;
+}
+.box > span .top-line {
+    margin-top: 25px;
+    height: 40px;
+    background-color: var(--yellow-c);
+    border-top: 6px double #111;
+    border-bottom: 6px double #111;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.box > span .top-line span {
+    width: 150px;
+    height: 25px;
+    border: 3px solid var(--b-ywllow-c);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.box > span .top-line span:nth-child(1) {
+    width: 75px;
+    border: 3px solid var(--b-ywllow-c);
+    border-left: none;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    text-align: start;
+    padding-left: 2px;
+}
+.box > span .top-line span:nth-child(3) {
+    width: 75px;
+    border: 3px solid var(--b-ywllow-c);
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    text-align: end;
+    padding-right: 2px;
+}
+/* door */
+.box > span .door {
+    position: absolute;
+    width: 100px ;
+    height: 170px;
+    bottom: 0;
+    left: 70px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    border: 5px double var(--b-ywllow-c);
+    border-bottom: none;
+    box-shadow: 0 0 5px 2px #777;
+}
+.box > span .door .left {
+    border: 7px double var(--b-ywllow-c);
+    border-bottom: none;
+    border-left: 3px double var(--b-ywllow-c);
+    border-top-right-radius: 50px;
+    background-color: var(--yellow-c);
+    position: relative;
+}
+.box > span .door .right {
+    border: 7px double var(--b-ywllow-c);
+    border-bottom: none;
+    border-right: 3px double var(--b-ywllow-c);
+    border-top-left-radius: 50px;
+    background-color: var(--yellow-c);
+    position: relative;
+}
+.box > span .door .top {
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid var(--b-ywllow-c);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    padding: 10px;
+}
+.box > span .door hr {
+    border: 2px solid var(--b-ywllow-c);
+    position: absolute;
+    width: 25px;
+    left: 5px;
+    top: 50px;
+}
+.box > span .door .bottom {
+    position: relative;
+}
+.box > span .door .bottom .slice{
+    position: absolute;
+    border: 1px solid var(--b-ywllow-c);
+    width: 25px ;
+    height: 10px ;
+    border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -ms-border-radius: 10px ;
+    -o-border-radius: 10px ;
+    margin-top: 10px;
+    top: calc(var(--i) + 30px);
+    left: -12px;
+}
+.box > span .door .bottom .hand {
+    position: relative;
+    padding: 3px ;
+    width: 10px;
+    border: 5px double var(--b-ywllow-c);
+    background-color: #111;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    top: 85px;
+}
+.box > span .door .bottom .hand.left {
+    left: 16px;
+}
+.box > span .door .bottom .hand.right {
+    left: 2px;
+}
+@media (max-width: 600px ){
+    .container{
+        width: 220px;
+        height: 220px;
+    }
+    .box > span {
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 1.5;
+        transform: rotateY(calc(90deg * var(--i))) translateZ(110px);
+        -webkit-transform: rotateY(calc(90deg * var(--i))) translateZ(110px);
+        -moz-transform: rotateY(calc(90deg * var(--i))) translateZ(110px);
+        -ms-transform: rotateY(calc(90deg * var(--i))) translateZ(110px);
+        -o-transform: rotateY(calc(90deg * var(--i))) translateZ(110px);
+    }
+    .box::before{
+        transform: rotateX(-90deg) translateZ(-110px);
+        -webkit-transform: rotateX(-90deg) translateZ(-110px);
+        -moz-transform: rotateX(-90deg) translateZ(-110px);
+        -ms-transform: rotateX(-90deg) translateZ(-110px);
+        -o-transform: rotateX(-90deg) translateZ(-110px);
+    }
+    .box::after{
+        transform: rotateX(-90deg) translateZ(300px);
+        -webkit-transform: rotateX(-90deg) translateZ(300px);
+        -moz-transform: rotateX(-90deg) translateZ(300px);
+        -ms-transform: rotateX(-90deg) translateZ(300px);
+        -o-transform: rotateX(-90deg) translateZ(300px);
+    }
+    .box > span .second-line {
+        gap: 2px;
+    }
+    .box > span .second-line i {
+        font-size: 25px;
+    }
+    .box > span .second-line .box-y {
+        height: 25px;
+    }
+    .box > span .top-line {
+        margin-top: 20px;
+        height: 33px;
+        border-top: 4px double #111;
+        border-bottom: 4px double #111;
+    }
+    .box > span .top-line span {
+        width: 150px;
+        height: 20px;
+        border: 2px solid var(--b-ywllow-c);
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+    }
+    .box > span .top-line span:nth-child(1) {
+        border-width: 2px;
+    }
+    .box > span .top-line span:nth-child(3) {
+        border-width: 2px;
+    }
+    /* door */
+    .box > span .door {
+        position: absolute;
+        width: 75px ;
+        height: 120px;
+        gap: 1px;
+        border: 2px double var(--b-ywllow-c);
+        border-bottom: none;
+    }
+    .box > span .door .left {
+        border: 4px double var(--b-ywllow-c);
+        border-bottom: none;
+        border-left: 2px double var(--b-ywllow-c);
+    }
+    .box > span .door .right {
+        border: 4px double var(--b-ywllow-c);
+        border-bottom: none;
+        border-right: 2px double var(--b-ywllow-c);
+    }
+    .box > span .door .top {
+        top: 12px;
+        left: 4px;
+        width: 20px;
+        height: 20px;
+    }
+    .box > span .door hr {
+        border: 1px solid var(--b-ywllow-c);
+        position: absolute;
+        width: 20px;
+        left: 4px;
+        top: 40px;
+    }
+    .box > span .door .bottom {
+        position: relative;
+    }
+    .box > span .door .bottom .slice{
+        position: absolute;
+        border: 1px solid var(--b-ywllow-c);
+        width: 22px ;
+        height: 7px ;
+        top: calc((var(--i)/1.6) + 30px);
+        left: -11px;
+    }
+    .box > span .door .bottom .hand {
+        padding: 2px ;
+        width: 8px;
+        border: 4px double var(--b-ywllow-c);
+        top: 67px;
+    }
+    .box > span .door .bottom .hand.left {
+        left: 16px;
+    }
+    .box > span .door .bottom .hand.right {
+        left: 2px;
+    }
+
+}
